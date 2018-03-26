@@ -1,0 +1,14 @@
+{
+  "name": "iparking-server",
+  "version": "1.0.0",
+  "description": "重使用JavaScript重写Parking项目服务器端\r ```\r npm install\r ```\r ```\r node server.js\r ```\r 服务运行在127.0.0.1:3000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
