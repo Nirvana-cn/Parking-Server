@@ -3,10 +3,12 @@ let UserSchema = new mongoose.Schema({
     phone: String,
     name: {type: String, default: " "},
     sex: {type: String, default: "male"},
-    deposit: {type: String, default: "non-delivery"},
+    deposit: {type: Boolean, default: false},
     account: {type: Number, default: 0},
     credit: {type: Number, default: 100},
-    parking: {type: Number, default: 0}
+    parking: {type: Number, default: 0},
+    startTime: {type: Date, default: 0},
+    finishTime: {type: Date, default: 0}
 })
 let db = mongoose.connection;
 let collectionName='user'
@@ -15,4 +17,3 @@ mongoose.connect('mongodb://localhost:27017/user')
 
 module.exports.db=db
 module.exports.user=User
-module.exports.schema=UserSchema

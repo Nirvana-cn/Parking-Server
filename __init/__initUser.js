@@ -3,10 +3,12 @@ let UserSchema = new mongoose.Schema({       //创建数据模板
     phone: String,
     name: {type: String, default: " "},
     sex: {type: String, default: "male"},    //指定数据类型，default选项指数据缺失时的默认值
-    deposit: {type: String, default: "non-delivery"},
+    deposit: {type: Boolean, default: false},
     account: {type: Number, default: 0},
     credit: {type: Number, default: 100},
-    parking: {type: Number, default: 0}
+    parking: {type: Number, default: 0},
+    startTime: {type: Date, default: 0},
+    finishTime: {type: Date, default: 0}
 })
 let db = mongoose.connection;   //当使用mongoose.connect()方法连接数据库时，数据库的实例依附在mongoose.connection上
 let collectionName='user'
