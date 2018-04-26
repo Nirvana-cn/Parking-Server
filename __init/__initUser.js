@@ -1,6 +1,6 @@
 let mongoose = require('mongoose')       //引用mongoose
 let UserSchema = new mongoose.Schema({       //创建数据模板
-    phone: String,
+    phone: Number,
     name: {type: String, default: " "},
     sex: {type: String, default: "male"},    //指定数据类型，default选项指数据缺失时的默认值
     deposit: {type: Boolean, default: false},

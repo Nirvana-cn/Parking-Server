@@ -1,6 +1,6 @@
 let mongoose = require('mongoose')
 let UserSchema = new mongoose.Schema({
-    phone: String,
+    phone: Number,
     name: {type: String, default: " "},
     sex: {type: String, default: "male"},
     deposit: {type: Boolean, default: false},

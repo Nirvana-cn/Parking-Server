@@ -30,4 +30,11 @@ router.get('/login', function(req, res) {
     })
 })
 
+router.get('/center', function(req, res) {
+    console.log(req.query.phone)
+    Userset.user.find({phone: req.query.phone}, function (err, data) {
+        res.json(data[0])
+    })
+})
+
 module.exports = router

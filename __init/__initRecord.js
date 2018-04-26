@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
 let RecordSchema = new mongoose.Schema({
-    phone: String,
-    park: String,
+    phone: Number,
+    park: Number,
     startTime: Date,
     finishTime: Date
 })
