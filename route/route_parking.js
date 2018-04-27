@@ -3,7 +3,8 @@ var router = express.Router()
 var Parkset = require('./__ConnectParkDataset')
 
 router.get('/init', function(req, res) {
-    Parkset.park.find({phone: req.query.phone}, function (err, data) {
+    Parkset.park.find({isUsed:false}, function (err, data) {
+        console.log('park information is send')
         res.json(data)
     })
 })

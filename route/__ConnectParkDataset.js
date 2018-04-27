@@ -1,6 +1,7 @@
 let mongoose = require('mongoose')
 let ParkSchema = new mongoose.Schema({
     park: Number,
+    category:Number,
     isUsed: {type: Boolean, default: false},
     location: String,
     latitude: Number,

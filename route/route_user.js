@@ -31,9 +31,15 @@ router.get('/login', function(req, res) {
 })
 
 router.get('/center', function(req, res) {
-    console.log(req.query.phone)
     Userset.user.find({phone: req.query.phone}, function (err, data) {
         res.json(data[0])
+    })
+})
+
+router.get('/recharge', function(req, res) {
+    Userset.user.findOneAndUpdate({phone: req.query.phone},{account:req.query.money}, function (err, data) {
+        console.log('update success')
+        res.end()
     })
 })
 
