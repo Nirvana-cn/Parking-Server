@@ -14,7 +14,7 @@ router.get('/login', function(req, res) {
             })
             let userInfo={
                 phone:req.query.phone,
-                name: " ",
+                name: "",
                 sex: "male",
                 deposit: false,
                 account: 0,
@@ -38,7 +38,18 @@ router.get('/center', function(req, res) {
 
 router.get('/recharge', function(req, res) {
     Userset.user.findOneAndUpdate({phone: req.query.phone},{account:req.query.money}, function (err, data) {
-        console.log('update success')
+        if(err){
+            console.log(err)
+        }else{
+            console.log('use account update success')
+            res.end()
+        }
+    })
+})
+
+router.get('/name', function(req, res) {
+    Userset.user.findOneAndUpdate({phone: req.query.phone},{name:req.query.name}, function (err, data) {
+        console.log('user name update success')
         res.end()
     })
 })

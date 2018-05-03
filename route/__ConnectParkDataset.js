@@ -11,7 +11,7 @@ let ParkSchema = new mongoose.Schema({
 let db = mongoose.connection
 let collectionName='park'
 let Park = mongoose.model('park', ParkSchema,collectionName)
-mongoose.connect('mongodb://localhost:27017/park')
+mongoose.connect('mongodb://localhost:27017/iParking')
 
 module.exports.db=db
 module.exports.park=Park

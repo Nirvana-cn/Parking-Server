@@ -8,4 +8,4 @@ let RecordSchema = new mongoose.Schema({
 let db = mongoose.connection
 let collectionName='record'
 let Record = mongoose.model('record', RecordSchema,collectionName)
-mongoose.connect('mongodb://localhost:27017/record')
+mongoose.connect('mongodb://localhost:27017/iParking')
