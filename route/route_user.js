@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var Userset = require('./__ConnectUserDataset')
+var Parkset = require('./__ConnectParkDataset')
 
 router.get('/login', function(req, res) {
     console.log(req.query.phone)
@@ -52,6 +53,18 @@ router.get('/name', function(req, res) {
         console.log('user name update success')
         res.end()
     })
+})
+
+router.get('/lock', function(req, res) {
+    setTimeout(function () {
+        Parkset.park.findOneAndUpdate({park:req.query.parking},{isUsed:true}, function (err, data) {
+            console.log('park information is update')
+        })
+        Userset.user.findOneAndUpdate({phone: req.query.phone},{parking:req.query.parking,startTime:new Date()}, function (err, data) {
+            console.log('lock success')
+            res.end()
+        })
+    },3000)
 })
 
 module.exports = router

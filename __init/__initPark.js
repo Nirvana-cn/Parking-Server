@@ -21,9 +21,9 @@ db.once('close',function () {       //监测数据库实例的状态
 })
 
 Park.create({       //增加记录
-    park: 10003,
-    category: 3,
-    location: '杭州电子科技大学图书馆',
+    park: 10002,
+    category: 2,
+    location: '浙江理工大学图书馆',
     latitude: 30.314981,
     longitude: 120.343218
 },function () {
@@ -33,3 +33,7 @@ Park.create({       //增加记录
 // Park.findOneAndUpdate({latitude:30.315827},{park:10002},function () {     //查询并更新
 //     console.log("Update success!")
 // });
+
+// Park.remove({park:10003},function () {        //删除操作
+//     console.log("Remove success!")
+// })
