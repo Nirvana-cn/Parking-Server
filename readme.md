@@ -3,6 +3,6 @@
 npm install
 ```
 ```
-node server.js
+node websocket.js
 ```
 服务运行在127.0.0.1:3000

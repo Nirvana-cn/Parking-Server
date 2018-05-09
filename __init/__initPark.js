@@ -20,19 +20,19 @@ db.once('close',function () {       //监测数据库实例的状态
     console.log("Mongo is closed!")
 })
 
-Park.create({       //增加记录
-    park: 10002,
-    category: 2,
-    location: '浙江理工大学图书馆',
-    latitude: 30.314981,
-    longitude: 120.343218
-},function () {
-    console.log("Insert success!")
-});
-
-// Park.findOneAndUpdate({latitude:30.315827},{park:10002},function () {     //查询并更新
-//     console.log("Update success!")
+// Park.create({       //增加记录
+//     park: 10002,
+//     category: 2,
+//     location: '浙江理工大学图书馆',
+//     latitude: 30.314981,
+//     longitude: 120.343218
+// },function () {
+//     console.log("Insert success!")
 // });
+
+Park.findOneAndUpdate({park:10002},{isUsed:false},function () {     //查询并更新
+    console.log("Update success!")
+});
 
 // Park.remove({park:10003},function () {        //删除操作
 //     console.log("Remove success!")
