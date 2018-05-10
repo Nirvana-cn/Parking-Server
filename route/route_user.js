@@ -57,29 +57,13 @@ router.get('/name', function (req, res) {
     })
 })
 
-// router.get('/lock', function (req, res) {
-//     console.log('receive user lock request')
-//     var client = new WebSocket('websocket://localhost:3001')
-//     client.on('open', function () {
-//         let data= JSON.stringify({park:req.query.parking})
-//         console.log('准备发送'+data)
-//         client.send(data)
-//         client.on('message',function (data) {
-//             if(data==='success'){
-//                 client.close()
-//                 Parkset.park.findOneAndUpdate({park: req.query.parking}, {isUsed: true}, function (err, data) {
-//                     console.log('park information is update')
-//                 })
-//                 Userset.user.findOneAndUpdate({phone: req.query.phone}, {
-//                     parking: req.query.parking,
-//                     startTime: new Date()
-//                 }, function (err, data) {
-//                     console.log('lock success')
-//                     res.end()
-//                 })
-//             }
-//         })
-//     })
-// })
+router.get('/clear', function (req, res) {
+    Userset.user.find({phone: req.query.phone}, function (err, data) {
+        if(!err){
+            let time=data[0].finishTime-data[0].startTime
+            res.json({time:time})
+        }
+    })
+})
 
 module.exports = router
