@@ -17,7 +17,7 @@ server.on('connection', function (ws) {
                 }
             })
             Userset.user.findOneAndUpdate({phone: data.user}, {
-                parking: message.park,
+                parking: data.park,
                 startTime: new Date()
             }, function (err, data) {
                 if(!err){

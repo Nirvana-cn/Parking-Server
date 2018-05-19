@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var Userset = require('./__ConnectUserDataset')
 var Parkset = require('./__ConnectParkDataset')
+var Recordset = require('./__ConnectRecordDataset')
 var WebSocket=require('ws')
 
 
@@ -62,6 +63,23 @@ router.get('/clear', function (req, res) {
         if(!err){
             let time=data[0].finishTime-data[0].startTime
             res.json({time:time})
+            console.log( typeof data[0].parking)
+            Recordset.record.create({
+                phone: data[0].phone,
+                park: data[0].parking,
+                startTime: data[0].startTime,
+                finishTime: data[0].finishTime
+            },function () {
+                console.log("Record insert success!")
+            })
+        }
+    })
+})
+
+router.get('/history', function (req, res) {
+    Recordset.record.find({phone: req.query.phone}, function (err, data) {
+        if(!err){
+            res.json(data)
         }
     })
 })
