@@ -7,6 +7,7 @@ let UserSchema = new mongoose.Schema({       //创建数据模板
     account: {type: Number, default: 0},
     credit: {type: Number, default: 100},
     parking: {type: Number, default: 0},
+    location: {type: String, default: ''},
     startTime: {type: Date, default: 0},
     finishTime: {type: Date, default: 0}
 })

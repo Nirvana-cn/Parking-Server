@@ -7,10 +7,11 @@ let UserSchema = new mongoose.Schema({
     account: {type: Number, default: 0},
     credit: {type: Number, default: 100},
     parking: {type: Number, default: 0},
+    location: {type: String, default: ''},
     startTime: {type: Date, default: 0},
     finishTime: {type: Date, default: 0}
 })
-let db = mongoose.connection;
+let db = mongoose.connection
 let collectionName='user'
 let User = mongoose.model('user', UserSchema,collectionName)
 mongoose.connect('mongodb://localhost:27017/iParking')

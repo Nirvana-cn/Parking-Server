@@ -2,6 +2,7 @@ let mongoose = require('mongoose')
 let RecordSchema = new mongoose.Schema({
     phone: Number,
     park: Number,
+    location:String,
     startTime: Date,
     finishTime: Date
 })

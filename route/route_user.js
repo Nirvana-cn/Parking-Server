@@ -63,13 +63,13 @@ router.get('/clear', function (req, res) {
         if(!err){
             let time=data[0].finishTime-data[0].startTime
             res.json({time:time})
-            console.log( typeof data[0].parking)
             Recordset.record.create({
                 phone: data[0].phone,
                 park: data[0].parking,
+                location: data[0].location,
                 startTime: data[0].startTime,
                 finishTime: data[0].finishTime
-            },function () {
+            } ,function () {
                 console.log("Record insert success!")
             })
         }
